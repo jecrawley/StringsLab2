@@ -35,12 +35,24 @@ public class MyStringUtils {
 
     String[] breakByLine (String string) {
 
-        return string.split("\n");
+        return string.split("[\n\f\r]");
     }
 
     String reverseCapitalize (String string) {
 
-        return null;
+        String[] arr = string.split("[\\s]+");
+        int length = arr.length;
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            result.append(arr[i].substring(0, 1).toLowerCase());
+            result.append(arr[i].substring(1).toUpperCase());
+            result.append(" ");
+        }
+
+        result.deleteCharAt(result.length() - 1);
+
+        return result.toString();
     }
 
     String reverseAll (String string) {
