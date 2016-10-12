@@ -57,7 +57,22 @@ public class MyStringUtils {
 
     String reverseAll (String string) {
 
-        return null;
+        string.replaceAll("[,!?.]", "");
+        String[] arr = string.split("[\\s]+");
+        int length = arr.length;
+        StringBuilder result = new StringBuilder();
+        StringBuilder entry = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            entry.append(arr[i]);
+            result.append(entry.reverse());
+            result.append(" ");
+            entry.delete(0, entry.length());
+        }
+
+        result.deleteCharAt(result.length() - 1);
+
+        return result.toString();
     }
 
     String whitespaceToNewline (String string) {
