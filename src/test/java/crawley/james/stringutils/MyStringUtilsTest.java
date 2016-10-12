@@ -40,7 +40,7 @@ public class MyStringUtilsTest {
     @Test
     public void reverseCapitalizeTest () {
 
-        assertEquals("The string should be \"tHIS iS a sTRING\"", "tHIS iS a sTRING",utils.reverseCapitalize("This is a   string"));
+        assertEquals("The string should be \"tHIS iS a sTRING\"", "tHIS iS a   sTRING",utils.reverseCapitalize("This is a   string "));
 
     }
 

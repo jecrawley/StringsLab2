@@ -1,5 +1,7 @@
 package crawley.james.stringutils;
 
+import java.util.regex.*;
+
 /**
  * Created by jamescrawley on 10/11/16.
  */
@@ -39,15 +41,15 @@ public class MyStringUtils {
     }
 
     String reverseCapitalize (String string) {
-
-        String[] arr = string.split("[\\s]+");
-        int length = arr.length;
+        
+        Pattern p = Pattern.compile("[\\w]+?(\\s+|$)");
+        Matcher m = p.matcher(string);
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < length; i++) {
-            result.append(arr[i].substring(0, 1).toLowerCase());
-            result.append(arr[i].substring(1).toUpperCase());
-            result.append(" ");
+        while (m.find()) {
+            result.append(m.group().substring(0, 1).toLowerCase());
+            result.append(m.group().substring(1).toUpperCase());
+
         }
 
         result.deleteCharAt(result.length() - 1);
