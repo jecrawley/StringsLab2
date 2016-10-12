@@ -41,8 +41,8 @@ public class MyStringUtils {
     }
 
     String reverseCapitalize (String string) {
-        
-        Pattern p = Pattern.compile("[\\w]+?(\\s+|$)");
+
+        Pattern p = Pattern.compile("[\\w]+(\\s+|$)");
         Matcher m = p.matcher(string);
         StringBuilder result = new StringBuilder();
 
@@ -52,27 +52,25 @@ public class MyStringUtils {
 
         }
 
-        result.deleteCharAt(result.length() - 1);
-
         return result.toString();
     }
 
     String reverseAll (String string) {
 
-        string.replaceAll("[,!?.]", "");
-        String[] arr = string.split("[\\s]+");
-        int length = arr.length;
+        Pattern p = Pattern.compile("\\w+");
+        Pattern p1 = Pattern.compile("(\\s+|$)");
+        Matcher m = p.matcher(string);
+        Matcher m1 = p1.matcher(string);
         StringBuilder result = new StringBuilder();
         StringBuilder entry = new StringBuilder();
 
-        for (int i = 0; i < length; i++) {
-            entry.append(arr[i]);
+        while (m.find()) {
+
+            entry.append(m.group());
             result.append(entry.reverse());
-            result.append(" ");
+            result.append(m1.find() ? m1.group() : "");
             entry.delete(0, entry.length());
         }
-
-        result.deleteCharAt(result.length() - 1);
 
         return result.toString();
     }
