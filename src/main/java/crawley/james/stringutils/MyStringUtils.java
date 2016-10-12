@@ -62,7 +62,7 @@ public class MyStringUtils {
 
     String whitespaceToNewline (String string) {
 
-        return null;
+        return string.replaceAll("[\\s]+", "\n");
     }
 
     String substringArray (String string) {
