@@ -35,7 +35,7 @@ public class MyStringUtils {
 
     String[] breakByLine (String string) {
 
-        return null;
+        return string.split("\n");
     }
 
     String reverseCapitalize (String string) {
