@@ -63,7 +63,7 @@ public class MyStringUtilsTest {
 
         String[] expected = {"a", "s", "st", "str", "stri", "strin", "string", "t", "tr", "tri", "trin", "tring", "r", "ri", "rin", "ring", "i", "in", "ing", "n", "ng", "g"};
 
-        assertEquals("The string should be \"[" + expected + "]\"", expected, utils.substringArray("a string"));
+        assertArrayEquals("The string should be \"[" + expected + "]\"", expected, utils.substringArray("a string"));
 
     }
 

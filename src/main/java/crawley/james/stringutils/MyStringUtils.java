@@ -1,5 +1,7 @@
 package crawley.james.stringutils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.*;
 
 /**
@@ -80,8 +82,31 @@ public class MyStringUtils {
         return string.replaceAll("[\\s]+", "\n");
     }
 
-    String substringArray (String string) {
+    String[] substringArray (String string) {
 
-        return null;
+        int length = string.length();
+        String nextSubstring;
+        List<String> substring = new ArrayList<String>();
+
+        for (int i = 0; i < length; i++) {
+            for (int j = (i + 1); j < (length + 1); j++) {
+
+                nextSubstring = string.substring(i, j);
+
+                if (nextSubstring.endsWith(" ")) {
+                    break;
+                }
+
+                substring.add(nextSubstring);
+
+            }
+        }
+
+        for (String s: substring) {
+            System.out.println(s);
+        }
+
+        //System.out.println(substring.toArray(new String[0]));
+        return substring.toArray(new String[0]);
     }
 }
